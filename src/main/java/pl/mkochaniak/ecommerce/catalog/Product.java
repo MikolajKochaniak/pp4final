@@ -10,6 +10,14 @@ public class Product {
     private final String description;
     private BigDecimal price;
 
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     public Product(UUID id, String name, String description) {
         this.id = id.toString();
         this.name = name;
