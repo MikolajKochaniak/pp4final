@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.*;
 
 public class ProductCatalog {
+
+    ArrayListProductStorage productStorage;
     private ArrayList<Product> products;
 
     public ProductCatalog() {
@@ -19,16 +21,13 @@ public class ProductCatalog {
 
         Product newProduct = new Product(id, name, description);
 
-        products.add(newProduct);
+        productStorage.add(newProduct);
 
         return id.toString();
     }
 
     public Product getProductBy(String id) {
-        return products.stream()
-                .filter(product -> product.getId().equals(id))
-                .findFirst()
-                .get();
+        return productStorage.getProductBy(id);
     }
 
     public void changePrice(String id, BigDecimal price) {
