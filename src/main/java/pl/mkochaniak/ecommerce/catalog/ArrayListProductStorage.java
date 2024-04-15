@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
-public class ArrayListProductStorage {
+
+public class ArrayListProductStorage implements ProductStorage {
     private ArrayList<Product> products;
 
     public ArrayListProductStorage() {
@@ -25,8 +26,7 @@ public class ArrayListProductStorage {
     public void addProduct(Product newProduct) {
         products.add(newProduct);
     }
-
-
-
-
 }
+
+
+
