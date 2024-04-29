@@ -20,5 +20,5 @@ public class App {
         productCatalog.addProduct("Lego set 1", "Nice one");
     return productCatalog;
 
-    }
+    };
 }
