@@ -1,6 +1,7 @@
 package pl.mkochaniak.ecommerce.sales;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,49 +19,22 @@ public class SalesController {
         String customerId = getCurrentCustomerId();
         return sales.getCurrentOffer(customerId);
     }
-    @PostMapping("/api/accept-offer")
-    ReservationDetail(AcceptOfferRequestacceptOfferRequest){
+
+    @PostMapping("/api/add-to-cart/{productId}")
+    void addToCart(@PathVariable String productId) {
         String customerId = getCurrentCustomerId();
-        ReservationDetail reservationDetails=
-                salesFocade.acceptOffer(CustomerId)
+        sales.addToCart(customerId, productId);
+    };
+
+    @PostMapping("api/accept-offer")
+    ReservationDetail acceptOffer(AcceptOfferRequest acceptOfferRequest) {
+        String customerId = getCurrentCustomerId();
+        ReservationDetail reservationDetail = sales.acceptOffer(customerId, acceptOfferRequest);
+        return  reservationDetail;
     }
 
     private String getCurrentCustomerId(){
 
-        return "Mikolaj";
-    }
-
-    public static class AcceptOfferRequest {
-        String firstName;
-        String lastName;
-        String email;
-
-
-        public String getFirstName() {
-            return firstName;
-        }
-
-        public AcceptOfferRequest setFirstName(String firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-        public String getLastName() {
-            return lastName;
-        }
-
-        public AcceptOfferRequest setLastName(String lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public AcceptOfferRequest setEmail(String email) {
-            this.email = email;
-            return this;
-        }
+        return "Emil";
     }
 }
