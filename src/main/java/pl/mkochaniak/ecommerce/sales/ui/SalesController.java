@@ -1,9 +1,13 @@
-package pl.mkochaniak.ecommerce.sales;
+package pl.mkochaniak.ecommerce.sales.ui;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pl.mkochaniak.ecommerce.sales.SalesFacade;
+import pl.mkochaniak.ecommerce.sales.offer.AcceptOfferRequest;
+import pl.mkochaniak.ecommerce.sales.offer.Offer;
+import pl.mkochaniak.ecommerce.sales.reservation.ReservationDetail;
 
 @RestController
 public class SalesController {

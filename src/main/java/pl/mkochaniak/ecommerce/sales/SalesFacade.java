@@ -1,5 +1,9 @@
 package pl.mkochaniak.ecommerce.sales;
 
+import pl.mkochaniak.ecommerce.sales.offer.AcceptOfferRequest;
+import pl.mkochaniak.ecommerce.sales.offer.Offer;
+import pl.mkochaniak.ecommerce.sales.reservation.ReservationDetail;
+
 public class SalesFacade {
     public Offer getCurrentOffer(String customerId) {
         return new Offer();

@@ -1,4 +1,4 @@
-package pl.mkochaniak.ecommerce.sales;
+package pl.mkochaniak.ecommerce.sales.offer;
 
 import java.math.BigDecimal;
 

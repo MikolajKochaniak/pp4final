@@ -8,6 +8,8 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import pl.mkochaniak.ecommerce.catalog.ProductCatalog;
+import pl.mkochaniak.ecommerce.sales.offer.AcceptOfferRequest;
+import pl.mkochaniak.ecommerce.sales.reservation.ReservationDetail;
 
 import java.math.BigDecimal;
 
