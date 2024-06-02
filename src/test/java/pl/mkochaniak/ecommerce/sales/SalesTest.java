@@ -1,9 +1,15 @@
 package pl.mkochaniak.ecommerce.sales;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import pl.mkochaniak.ecommerce.sales.cart.InMemoryCartStorage;
 import pl.mkochaniak.ecommerce.sales.offer.Offer;
+import pl.mkochaniak.ecommerce.sales.offer.OfferCalculator;
+import pl.mkochaniak.ecommerce.sales.reservation.ReservationRepository;
+import pl.mkochaniak.ecommerce.sales.reservation.SpyPaymentGateway;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.math.BigDecimal;
+
 
 public class SalesTest {
     @Test
@@ -22,7 +28,12 @@ public class SalesTest {
     }
 
     private SalesFacade thereIsSAlesFacade() {
-        return new SalesFacade();
+        return new SalesFacade(
+                new InMemoryCartStorage(),
+                new OfferCalculator(),
+                new SpyPaymentGateway(),
+                new ReservationRepository()
+        );
     }
 
     @Test

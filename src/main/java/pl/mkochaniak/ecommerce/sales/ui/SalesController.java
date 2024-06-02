@@ -14,7 +14,6 @@ public class SalesController {
     SalesFacade sales;
 
     public SalesController(SalesFacade sales) {
-
         this.sales = sales;
     }
 
@@ -39,6 +38,6 @@ public class SalesController {
 
     private String getCurrentCustomerId(){
 
-        return "Emil";
+        return "Mikołaj";
     }
 }

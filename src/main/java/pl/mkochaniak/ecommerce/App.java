@@ -5,7 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import pl.mkochaniak.ecommerce.catalog.ArrayListProductStorage;
 import pl.mkochaniak.ecommerce.catalog.ProductCatalog;
+import pl.mkochaniak.ecommerce.infrastructure.PayUPaymentGateway;
 import pl.mkochaniak.ecommerce.sales.SalesFacade;
+import pl.mkochaniak.ecommerce.sales.cart.InMemoryCartStorage;
+import pl.mkochaniak.ecommerce.sales.offer.OfferCalculator;
+import pl.mkochaniak.ecommerce.sales.reservation.ReservationRepository;
 
 @SpringBootApplication
 public class App {
@@ -26,6 +30,11 @@ public class App {
 
     @Bean
     SalesFacade createSales(){
-        return new SalesFacade();
+        return new SalesFacade(
+                new InMemoryCartStorage(),
+                new OfferCalculator(),
+                new PayUPaymentGateway(),
+                new ReservationRepository()
+        );
     }
 }
